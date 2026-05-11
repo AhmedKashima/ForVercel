@@ -34,7 +34,7 @@ const Clients = (props: any) => {
   function getCustomers() {
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/customer/display",
+      url: `${import.meta.env.VITE_API_URL}/customer/display`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -56,7 +56,7 @@ const Clients = (props: any) => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/customer/create",
+      url: `${import.meta.env.VITE_API_URL}/customer/create`,
       headers: {
         Authorization: "Bearer " + props.token,
       },

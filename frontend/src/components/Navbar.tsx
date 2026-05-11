@@ -10,13 +10,13 @@ const Navbar = (props: any) => {
   const [admin, setAdmin] = useState<boolean>();
   const [nav, setNav] = useState<Boolean>(false);
   const [unreadCount, setUnreadCount] = useState<number>(0);
-  const socket = useSocket("https://graduation-backend-v7om.onrender.com", props.userId);
+  const socket = useSocket(import.meta.env.VITE_API_URL, props.userId);
   const navigate = useNavigate();
 
   function getData() {
     axios({
       method: "GET",
-      url: "https://graduation-backend-v7om.onrender.com/profile",
+      url: `${import.meta.env.VITE_API_URL}/profile`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -37,7 +37,7 @@ const Navbar = (props: any) => {
   const loadUnread = () => {
     if (!props.userId) return;
     axios
-      .get(`https://graduation-backend-v7om.onrender.com/api/conversations/${props.userId}`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/conversations/${props.userId}`, {
         headers: {
           Authorization: "Bearer " + props.token,
         },
@@ -54,7 +54,7 @@ const Navbar = (props: any) => {
   function logOut() {
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/logout",
+      url: `${import.meta.env.VITE_API_URL}/logout`,
     })
       .then((response) => {
         console.log(response.data);

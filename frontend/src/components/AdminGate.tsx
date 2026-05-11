@@ -21,7 +21,7 @@ const AdminGate = ({
     }
 
     axios
-      .get("https://graduation-backend-v7om.onrender.com/profile", {
+      .get(`${import.meta.env.VITE_API_URL}/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

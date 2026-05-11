@@ -38,7 +38,7 @@ const Customer = ({
     ) {
       axios({
         method: "POST",
-        url: "https://graduation-backend-v7om.onrender.com/customer/delete",
+        url: `${import.meta.env.VITE_API_URL}/customer/delete`,
         headers: {
           Authorization: "Bearer " + token,
         },

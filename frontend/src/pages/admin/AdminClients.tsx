@@ -17,7 +17,7 @@ const AdminClients = ({ token }: { token: string }) => {
     setLoading(true);
     axios
       .post(
-        "https://graduation-backend-v7om.onrender.com/customer/display",
+        `${import.meta.env.VITE_API_URL}/customer/display`,
         { Search: term },
         {
           headers: {
@@ -38,7 +38,7 @@ const AdminClients = ({ token }: { token: string }) => {
   const loadServices = () => {
     axios
       .post(
-        "https://graduation-backend-v7om.onrender.com/service/details",
+        `${import.meta.env.VITE_API_URL}/service/details`,
         {},
         {
           headers: {

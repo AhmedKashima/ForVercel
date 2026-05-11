@@ -1,11 +1,11 @@
 from base import api, bcrypt
 from models import db, Employees
 
-USER_EMAIL = "worker@demo.com"
+USER_EMAIL = "work@demo.com"
 USER_PASSWORD = "Worker12345"
 USER_FIRST_NAME = "Worker"
 USER_LAST_NAME = "Demo"
-USER_PHONE = 70000000000
+USER_PHONE = "+70000000000"
 USER_DATE_HIRED = "2026-05-11"
 
 with api.app_context():

@@ -33,7 +33,7 @@ function App() {
   // Получение профиля пользователя при наличии токена
   useEffect(() => {
     if (token) {
-      axios.get("https://graduation-backend-v7om.onrender.com/profile", {
+      axios.get(`${import.meta.env.VITE_API_URL}/profile`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

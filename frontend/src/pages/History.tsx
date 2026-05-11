@@ -39,7 +39,7 @@ const History = (props: any) => {
   const getGenerators = () => {
     axios({
       method: "GET",
-      url: "https://graduation-backend-v7om.onrender.com/generators/details",
+      url: `${import.meta.env.VITE_API_URL}/generators/details`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -56,7 +56,7 @@ const History = (props: any) => {
   const getData = (id: number) => {
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/customer/details",
+      url: `${import.meta.env.VITE_API_URL}/customer/details`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -82,7 +82,7 @@ const deleteCustomer = (id: number) => {
     ) {
       axios({
         method: "POST",
-        url: "https://graduation-backend-v7om.onrender.com/customer/delete",
+        url: `${import.meta.env.VITE_API_URL}/customer/delete`,
         headers: {
           Authorization: "Bearer " + props.token,
         },
@@ -104,7 +104,7 @@ const deleteCustomer = (id: number) => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/service/create",
+      url: `${import.meta.env.VITE_API_URL}/service/create`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -137,7 +137,7 @@ const deleteCustomer = (id: number) => {
   const getWork = (id: number) => {
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/service/details",
+      url: `${import.meta.env.VITE_API_URL}/service/details`,
       headers: {
         Authorization: "Bearer " + props.token,
       },

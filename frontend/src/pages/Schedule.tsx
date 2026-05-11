@@ -26,7 +26,7 @@ const Schedule = (props: any) => {
     // console.log(value);
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/schedule/display",
+      url: `${import.meta.env.VITE_API_URL}/schedule/display`,
       headers: {
         Authorization: "Bearer " + props.token,
       },

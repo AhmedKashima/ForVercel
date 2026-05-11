@@ -12,7 +12,7 @@ const Home = (props: any) => {
   function getData() {
     axios({
       method: "GET",
-      url: "https://graduation-backend-v7om.onrender.com/profile",
+      url: `${import.meta.env.VITE_API_URL}/profile`,
       headers: {
         Authorization: "Bearer " + props.token,
       },
@@ -36,7 +36,7 @@ const Home = (props: any) => {
   function logOut() {
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/logout",
+      url: `${import.meta.env.VITE_API_URL}/logout`,
     })
       .then((response) => {
         console.log(response.data);

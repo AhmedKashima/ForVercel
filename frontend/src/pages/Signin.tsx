@@ -25,7 +25,7 @@ function Signin(props: any) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/token",
+      url: `${import.meta.env.VITE_API_URL}/token`,
       data: {
         email: email,
         password: password,
@@ -60,7 +60,7 @@ function Signin(props: any) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "https://graduation-backend-v7om.onrender.com/recovery/check",
+      url: `${import.meta.env.VITE_API_URL}/recovery/check`,
       data: {
         email: email,
         code: code,

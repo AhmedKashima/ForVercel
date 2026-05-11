@@ -14,7 +14,7 @@ class Employees(db.Model):
     Password = db.Column(db.Text, nullable=False)
     FirstName = db.Column(db.String(50), nullable=False)
     LastName = db.Column(db.String(50), nullable=False)
-    PhoneNumber = db.Column(db.Integer, nullable = False)
+    PhoneNumber = db.Column(db.String(20), nullable = False)
     Admin = db.Column(db.Boolean, nullable=False)
     DateHired = db.Column(db.String(345), nullable=False)
 
@@ -28,7 +28,7 @@ class Customers(db.Model):
     Street = db.Column(db.String(50), nullable=False)
     State = db.Column(db.String(50), nullable=False)
     ZIP = db.Column(db.String(5), nullable=False)
-    PhoneNumber = db.Column(db.Integer, nullable=False)
+    PhoneNumber = db.Column(db.String(20), nullable=False)
 
 class Generators(db.Model):
     __tablename__ = "GENERATOR"

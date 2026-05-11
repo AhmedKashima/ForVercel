@@ -34,7 +34,7 @@ const ChatPanel = ({
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
-  const socket = useSocket("https://graduation-backend-v7om.onrender.com", userId);
+  const socket = useSocket(import.meta.env.VITE_API_URL, userId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [currentRecipientId, setCurrentRecipientId] = useState<string | null>(recipientId);
   const [conversationId, setConversationId] = useState<number | null>(null);
@@ -55,7 +55,7 @@ const ChatPanel = ({
   const loadConversations = () => {
     if (!userId) return;
     axios
-      .get(`https://graduation-backend-v7om.onrender.com/api/conversations/${userId}`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/conversations/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -79,7 +79,7 @@ const ChatPanel = ({
     if (!userId) return;
     axios
       .post(
-        "https://graduation-backend-v7om.onrender.com/api/conversations/read",
+        `${import.meta.env.VITE_API_URL}/api/conversations/read`,
         { conversation_id: convId, user_id: Number(userId) },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -122,7 +122,7 @@ const ChatPanel = ({
     if (!userId) return;
     if (isAdmin) {
       axios
-        .get("https://graduation-backend-v7om.onrender.com/employees", {
+        .get(`${import.meta.env.VITE_API_URL}/employees`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -142,7 +142,7 @@ const ChatPanel = ({
         .catch((error) => console.error("Ошибка при загрузке команды:", error));
     } else if (!recipientId) {
       axios
-        .get("https://graduation-backend-v7om.onrender.com/api/admins", {
+        .get(`${import.meta.env.VITE_API_URL}/api/admins`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -171,7 +171,7 @@ const ChatPanel = ({
       setIsTyping(false);
       axios
         .post(
-          "https://graduation-backend-v7om.onrender.com/api/conversations",
+          `${import.meta.env.VITE_API_URL}/api/conversations`,
           { user_id: Number(userId), recipient_id: Number(currentRecipientId) },
           { headers: { Authorization: `Bearer ${token}` } }
         )
